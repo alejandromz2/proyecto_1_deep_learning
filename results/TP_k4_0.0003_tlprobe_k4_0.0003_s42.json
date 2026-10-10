@@ -1,0 +1,405 @@
+{
+  "exp_id": "TP_k4_0.0003",
+  "name": "tlprobe_k4_0.0003",
+  "group": "transfer_lr",
+  "seed": 42,
+  "config": {
+    "exp_id": "TP_k4_0.0003",
+    "name": "tlprobe_k4_0.0003",
+    "group": "transfer_lr",
+    "seed": 42,
+    "data": {
+      "image_size": 224,
+      "num_classes": null,
+      "scenario": "balanced",
+      "longtail_seed": 42,
+      "longtail_head_frac": 0.2,
+      "longtail_mid_frac": 0.3,
+      "longtail_head_n": 50,
+      "longtail_mid_n": 20,
+      "longtail_tail_n": 5,
+      "batch_size": 192,
+      "eval_batch_size": 512,
+      "num_workers": 12,
+      "prefetch_factor": 4,
+      "persistent_workers": true,
+      "random_resized_crop": true,
+      "rrc_scale_min": 0.35,
+      "horizontal_flip": true,
+      "color_jitter": 0.0,
+      "rotation_degrees": 0.0,
+      "random_erasing": 0.0,
+      "subset_classes": null,
+      "subset_images_per_class": null
+    },
+    "model": {
+      "arch": "resnet50",
+      "pretrained": true,
+      "dropout": 0.2,
+      "batch_norm": true,
+      "mlp_hidden": [
+        2048,
+        1024
+      ],
+      "freeze_mode": "none",
+      "partial_unfrozen_blocks": 4,
+      "freeze_bn_stats": true
+    },
+    "optim": {
+      "optimizer": "sgd_momentum",
+      "lr": 0.0003,
+      "backbone_lr_mult": 0.1,
+      "momentum": 0.9,
+      "weight_decay": 0.0001,
+      "nesterov": false,
+      "scheduler": "cosine",
+      "warmup_epochs": 1,
+      "epochs": 3,
+      "label_smoothing": 0.0,
+      "grad_clip": 0.0,
+      "amp": true,
+      "channels_last": true,
+      "loss": "ce",
+      "focal_gamma": 2.0,
+      "class_weighting": "none",
+      "weighted_sampler": false
+    },
+    "early_stop": {
+      "enabled": false,
+      "metric": "val_top1",
+      "mode": "max",
+      "patience": 4,
+      "min_delta": 0.0001,
+      "restore_best": true
+    },
+    "notes": "Transfer learning con k=4 etapas finales descongeladas.",
+    "keep_weights": false
+  },
+  "history": [
+    {
+      "epoch": 0,
+      "lr": 0.0003,
+      "train_loss": 9.225113019782095,
+      "train_top1": 0.00013000832053251408,
+      "val_loss": 9.215435624389649,
+      "val_top1": 0.00013,
+      "val_top5": 0.00071,
+      "val_macro_f1": 7.00582670667695e-05,
+      "val_weighted_f1": 7.005826706676951e-05,
+      "train_seconds": 293.00908422097564,
+      "val_seconds": 29.463387083960697,
+      "peak_memory_gb": 8.502448558807373
+    },
+    {
+      "epoch": 1,
+      "lr": 0.00015,
+      "train_loss": 9.210880995895456,
+      "train_top1": 0.00015200972862263186,
+      "val_loss": 9.201966875305176,
+      "val_top1": 0.00017,
+      "val_top5": 0.00081,
+      "val_macro_f1": 0.00010426877732548428,
+      "val_weighted_f1": 0.00010426877732548427,
+      "train_seconds": 292.65555187803693,
+      "val_seconds": 29.551857924088836,
+      "peak_memory_gb": 8.50283145904541
+    },
+    {
+      "epoch": 2,
+      "lr": 0.0,
+      "train_loss": 9.202481949201195,
+      "train_top1": 0.00020001280081925245,
+      "val_loss": 9.199797499694824,
+      "val_top1": 0.00018,
+      "val_top5": 0.00089,
+      "val_macro_f1": 0.00010012775066529225,
+      "val_weighted_f1": 0.00010012775066529225,
+      "train_seconds": 293.1656001769006,
+      "val_seconds": 29.660993226105347,
+      "peak_memory_gb": 8.50283145904541
+    }
+  ],
+  "best_epoch": 0,
+  "best": {
+    "val_loss": 9.215435624389649,
+    "val_macro_f1": 7.00582670667695e-05,
+    "val_weighted_f1": 7.005826706676951e-05,
+    "val_n": 100000,
+    "val_top1": 0.00013,
+    "val_top5": 0.00071
+  },
+  "final": {
+    "loss": 9.215435624389649,
+    "macro_f1": 7.00582670667695e-05,
+    "weighted_f1": 7.005826706676951e-05,
+    "n": 100000,
+    "top1": 0.00013,
+    "top5": 0.00071
+  },
+  "by_group": {},
+  "by_taxon": {
+    "Actinopterygii": {
+      "n_classes": 183,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Agaricomycetes": {
+      "n_classes": 245,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Amphibia": {
+      "n_classes": 170,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Anthozoa": {
+      "n_classes": 17,
+      "recall": 0.0058823529411764705,
+      "macro_f1": 0.0005911912503694946
+    },
+    "Arachnida": {
+      "n_classes": 153,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Arthoniomycetes": {
+      "n_classes": 2,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Ascidiacea": {
+      "n_classes": 2,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Asteroidea": {
+      "n_classes": 11,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Aves": {
+      "n_classes": 1486,
+      "recall": 0.00013458950201884255,
+      "macro_f1": 0.00011955294593248831
+    },
+    "Bivalvia": {
+      "n_classes": 33,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Bryopsida": {
+      "n_classes": 30,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Cephalopoda": {
+      "n_classes": 5,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Chilopoda": {
+      "n_classes": 5,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Clitellata": {
+      "n_classes": 1,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Cycadopsida": {
+      "n_classes": 1,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Dacrymycetes": {
+      "n_classes": 5,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Diplopoda": {
+      "n_classes": 6,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Dothideomycetes": {
+      "n_classes": 1,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Echinoidea": {
+      "n_classes": 7,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Elasmobranchii": {
+      "n_classes": 16,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Florideophyceae": {
+      "n_classes": 7,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Gastropoda": {
+      "n_classes": 122,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Gnetopsida": {
+      "n_classes": 2,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Hexanauplia": {
+      "n_classes": 7,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Holothuroidea": {
+      "n_classes": 2,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Hydrozoa": {
+      "n_classes": 3,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Insecta": {
+      "n_classes": 2526,
+      "recall": 0.0001979414093428345,
+      "macro_f1": 6.411126870035726e-05
+    },
+    "Jungermanniopsida": {
+      "n_classes": 2,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Lecanoromycetes": {
+      "n_classes": 55,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Leotiomycetes": {
+      "n_classes": 6,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Liliopsida": {
+      "n_classes": 674,
+      "recall": 0.00029673590504451043,
+      "macro_f1": 0.00023007783941856967
+    },
+    "Lycopodiopsida": {
+      "n_classes": 20,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Magnoliopsida": {
+      "n_classes": 3295,
+      "recall": 6.0698027314112297e-05,
+      "macro_f1": 3.0537516847472646e-05
+    },
+    "Malacostraca": {
+      "n_classes": 54,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Mammalia": {
+      "n_classes": 246,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Marchantiopsida": {
+      "n_classes": 5,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Merostomata": {
+      "n_classes": 1,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Ophiuroidea": {
+      "n_classes": 1,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Pezizomycetes": {
+      "n_classes": 13,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Pinopsida": {
+      "n_classes": 86,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Polychaeta": {
+      "n_classes": 3,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Polyplacophora": {
+      "n_classes": 9,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Polypodiopsida": {
+      "n_classes": 140,
+      "recall": 0.0007142857142857143,
+      "macro_f1": 0.0006802721088435375
+    },
+    "Polytrichopsida": {
+      "n_classes": 4,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Pucciniomycetes": {
+      "n_classes": 3,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Reptilia": {
+      "n_classes": 313,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Scyphozoa": {
+      "n_classes": 6,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Sordariomycetes": {
+      "n_classes": 7,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Sphagnopsida": {
+      "n_classes": 1,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Tremellomycetes": {
+      "n_classes": 4,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Ulvophyceae": {
+      "n_classes": 4,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    }
+  },
+  "params_total": 43998032,
+  "params_trainable": 43998032,
+  "train_seconds": 967.5064745100681,
+  "gpu_hours": 0.2687517984750189,
+  "epochs_run": 3,
+  "stopped_early": false,
+  "peak_memory_gb": 8.50283145904541,
+  "throughput_img_s": 1550.3772217747476
+}

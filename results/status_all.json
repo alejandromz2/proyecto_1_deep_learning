@@ -1,0 +1,11 @@
+{
+  "phase": "all",
+  "completed_this_job": 19,
+  "deferred": 1,
+  "pending_total": 5,
+  "queue_size": 24,
+  "remaining_minutes": -6.7,
+  "safety_minutes": 12.0,
+  "slurm_job_id": "54056",
+  "timestamp": "2026-10-02 20:46:02"
+}

@@ -1,0 +1,167 @@
+{
+  "exp_id": "V1",
+  "name": "verify_mlp",
+  "group": "verificacion",
+  "seed": 42,
+  "config": {
+    "exp_id": "V1",
+    "name": "verify_mlp",
+    "group": "verificacion",
+    "seed": 42,
+    "data": {
+      "image_size": 64,
+      "num_classes": null,
+      "scenario": "balanced",
+      "longtail_seed": 42,
+      "longtail_head_frac": 0.2,
+      "longtail_mid_frac": 0.3,
+      "longtail_head_n": 50,
+      "longtail_mid_n": 20,
+      "longtail_tail_n": 5,
+      "batch_size": 64,
+      "eval_batch_size": 512,
+      "num_workers": 6,
+      "prefetch_factor": 4,
+      "persistent_workers": true,
+      "random_resized_crop": true,
+      "rrc_scale_min": 0.35,
+      "horizontal_flip": true,
+      "color_jitter": 0.0,
+      "rotation_degrees": 0.0,
+      "random_erasing": 0.0,
+      "subset_classes": 50,
+      "subset_images_per_class": null
+    },
+    "model": {
+      "arch": "mlp",
+      "pretrained": false,
+      "dropout": 0.0,
+      "batch_norm": true,
+      "mlp_hidden": [
+        2048,
+        1024
+      ],
+      "freeze_mode": "none",
+      "partial_unfrozen_blocks": 1,
+      "freeze_bn_stats": true
+    },
+    "optim": {
+      "optimizer": "adam",
+      "lr": 0.001,
+      "backbone_lr_mult": 1.0,
+      "momentum": 0.9,
+      "weight_decay": 5e-05,
+      "nesterov": false,
+      "scheduler": "cosine",
+      "warmup_epochs": 0,
+      "epochs": 1,
+      "label_smoothing": 0.0,
+      "grad_clip": 0.0,
+      "amp": true,
+      "channels_last": true,
+      "loss": "ce",
+      "focal_gamma": 2.0,
+      "class_weighting": "none",
+      "weighted_sampler": false
+    },
+    "early_stop": {
+      "enabled": false,
+      "metric": "val_top1",
+      "mode": "max",
+      "patience": 4,
+      "min_delta": 0.0001,
+      "restore_best": true
+    },
+    "notes": "Verificacion: baseline denso sobre el corpus real.",
+    "keep_weights": false
+  },
+  "history": [
+    {
+      "epoch": 0,
+      "lr": 0.0,
+      "train_loss": 3.9548115852551584,
+      "train_top1": 0.0673076923076923,
+      "val_loss": 3.6196796894073486,
+      "val_top1": 0.108,
+      "val_top5": 0.312,
+      "val_macro_f1": 0.08250144646346308,
+      "val_weighted_f1": 0.08250144646346308,
+      "train_seconds": 9.187743233982474,
+      "val_seconds": 1.4668413000181317,
+      "peak_memory_gb": 0.5297245979309082
+    }
+  ],
+  "best_epoch": 0,
+  "best": {
+    "val_loss": 3.6196796894073486,
+    "val_macro_f1": 0.08250144646346308,
+    "val_weighted_f1": 0.08250144646346308,
+    "val_n": 500,
+    "val_top1": 0.108,
+    "val_top5": 0.312
+  },
+  "final": {
+    "loss": 3.6196796894073486,
+    "macro_f1": 0.08250144646346308,
+    "weighted_f1": 0.08250144646346308,
+    "n": 500,
+    "top1": 0.108,
+    "top5": 0.312
+  },
+  "by_group": {},
+  "by_taxon": {
+    "Actinopterygii": {
+      "n_classes": 1,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Agaricomycetes": {
+      "n_classes": 1,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Aves": {
+      "n_classes": 9,
+      "recall": 0.06666666666666667,
+      "macro_f1": 0.060111699000587895
+    },
+    "Bivalvia": {
+      "n_classes": 1,
+      "recall": 0.2,
+      "macro_f1": 0.1818181818181818
+    },
+    "Insecta": {
+      "n_classes": 11,
+      "recall": 0.1,
+      "macro_f1": 0.08687906663435029
+    },
+    "Lecanoromycetes": {
+      "n_classes": 1,
+      "recall": 0.5,
+      "macro_f1": 0.22222222222222224
+    },
+    "Liliopsida": {
+      "n_classes": 2,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Magnoliopsida": {
+      "n_classes": 22,
+      "recall": 0.13181818181818183,
+      "macro_f1": 0.09461362510420286
+    },
+    "Reptilia": {
+      "n_classes": 2,
+      "recall": 0.05,
+      "macro_f1": 0.07142857142857144
+    }
+  },
+  "params_total": 27323442,
+  "params_trainable": 27323442,
+  "train_seconds": 10.654584534000605,
+  "gpu_hours": 0.002959606815000168,
+  "epochs_run": 1,
+  "stopped_early": false,
+  "peak_memory_gb": 0.5297245979309082,
+  "throughput_img_s": 234.64077759410247
+}

@@ -1,0 +1,167 @@
+{
+  "exp_id": "V2",
+  "name": "verify_cnn_scratch",
+  "group": "verificacion",
+  "seed": 42,
+  "config": {
+    "exp_id": "V2",
+    "name": "verify_cnn_scratch",
+    "group": "verificacion",
+    "seed": 42,
+    "data": {
+      "image_size": 128,
+      "num_classes": null,
+      "scenario": "balanced",
+      "longtail_seed": 42,
+      "longtail_head_frac": 0.2,
+      "longtail_mid_frac": 0.3,
+      "longtail_head_n": 50,
+      "longtail_mid_n": 20,
+      "longtail_tail_n": 5,
+      "batch_size": 64,
+      "eval_batch_size": 512,
+      "num_workers": 6,
+      "prefetch_factor": 4,
+      "persistent_workers": true,
+      "random_resized_crop": true,
+      "rrc_scale_min": 0.35,
+      "horizontal_flip": true,
+      "color_jitter": 0.0,
+      "rotation_degrees": 0.0,
+      "random_erasing": 0.0,
+      "subset_classes": 50,
+      "subset_images_per_class": null
+    },
+    "model": {
+      "arch": "resnet50",
+      "pretrained": false,
+      "dropout": 0.0,
+      "batch_norm": true,
+      "mlp_hidden": [
+        2048,
+        1024
+      ],
+      "freeze_mode": "none",
+      "partial_unfrozen_blocks": 1,
+      "freeze_bn_stats": true
+    },
+    "optim": {
+      "optimizer": "sgd_momentum",
+      "lr": 0.01,
+      "backbone_lr_mult": 1.0,
+      "momentum": 0.9,
+      "weight_decay": 5e-05,
+      "nesterov": false,
+      "scheduler": "cosine",
+      "warmup_epochs": 0,
+      "epochs": 1,
+      "label_smoothing": 0.0,
+      "grad_clip": 0.0,
+      "amp": true,
+      "channels_last": true,
+      "loss": "ce",
+      "focal_gamma": 2.0,
+      "class_weighting": "none",
+      "weighted_sampler": false
+    },
+    "early_stop": {
+      "enabled": false,
+      "metric": "val_top1",
+      "mode": "max",
+      "patience": 4,
+      "min_delta": 0.0001,
+      "restore_best": true
+    },
+    "notes": "Verificacion: CNN desde cero.",
+    "keep_weights": false
+  },
+  "history": [
+    {
+      "epoch": 0,
+      "lr": 0.0,
+      "train_loss": 4.379792066720816,
+      "train_top1": 0.024839743589743588,
+      "val_loss": 4.383113384246826,
+      "val_top1": 0.042,
+      "val_top5": 0.144,
+      "val_macro_f1": 0.013675508983780362,
+      "val_weighted_f1": 0.013675508983780362,
+      "train_seconds": 28.84302922291681,
+      "val_seconds": 11.72362532094121,
+      "peak_memory_gb": 1.2785329818725586
+    }
+  ],
+  "best_epoch": 0,
+  "best": {
+    "val_loss": 4.383113384246826,
+    "val_macro_f1": 0.013675508983780362,
+    "val_weighted_f1": 0.013675508983780362,
+    "val_n": 500,
+    "val_top1": 0.042,
+    "val_top5": 0.144
+  },
+  "final": {
+    "loss": 4.383113384246826,
+    "macro_f1": 0.013675508983780362,
+    "weighted_f1": 0.013675508983780362,
+    "n": 500,
+    "top1": 0.042,
+    "top5": 0.144
+  },
+  "by_group": {},
+  "by_taxon": {
+    "Actinopterygii": {
+      "n_classes": 1,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Agaricomycetes": {
+      "n_classes": 1,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Aves": {
+      "n_classes": 9,
+      "recall": 0.03333333333333333,
+      "macro_f1": 0.007843137254901962
+    },
+    "Bivalvia": {
+      "n_classes": 1,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Insecta": {
+      "n_classes": 11,
+      "recall": 0.018181818181818184,
+      "macro_f1": 0.009066070541480377
+    },
+    "Lecanoromycetes": {
+      "n_classes": 1,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Liliopsida": {
+      "n_classes": 2,
+      "recall": 0.0,
+      "macro_f1": 0.0
+    },
+    "Magnoliopsida": {
+      "n_classes": 22,
+      "recall": 0.06363636363636363,
+      "macro_f1": 0.020453107929388765
+    },
+    "Reptilia": {
+      "n_classes": 2,
+      "recall": 0.1,
+      "macro_f1": 0.031746031746031744
+    }
+  },
+  "params_total": 23610482,
+  "params_trainable": 23610482,
+  "train_seconds": 40.56665454385802,
+  "gpu_hours": 0.011268515151071672,
+  "epochs_run": 1,
+  "stopped_early": false,
+  "peak_memory_gb": 1.2785329818725586,
+  "throughput_img_s": 61.626969936531566
+}

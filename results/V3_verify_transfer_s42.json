@@ -1,0 +1,167 @@
+{
+  "exp_id": "V3",
+  "name": "verify_transfer",
+  "group": "verificacion",
+  "seed": 42,
+  "config": {
+    "exp_id": "V3",
+    "name": "verify_transfer",
+    "group": "verificacion",
+    "seed": 42,
+    "data": {
+      "image_size": 128,
+      "num_classes": null,
+      "scenario": "balanced",
+      "longtail_seed": 42,
+      "longtail_head_frac": 0.2,
+      "longtail_mid_frac": 0.3,
+      "longtail_head_n": 50,
+      "longtail_mid_n": 20,
+      "longtail_tail_n": 5,
+      "batch_size": 64,
+      "eval_batch_size": 512,
+      "num_workers": 6,
+      "prefetch_factor": 4,
+      "persistent_workers": true,
+      "random_resized_crop": true,
+      "rrc_scale_min": 0.35,
+      "horizontal_flip": true,
+      "color_jitter": 0.0,
+      "rotation_degrees": 0.0,
+      "random_erasing": 0.0,
+      "subset_classes": 50,
+      "subset_images_per_class": null
+    },
+    "model": {
+      "arch": "resnet50",
+      "pretrained": true,
+      "dropout": 0.0,
+      "batch_norm": true,
+      "mlp_hidden": [
+        2048,
+        1024
+      ],
+      "freeze_mode": "full",
+      "partial_unfrozen_blocks": 1,
+      "freeze_bn_stats": true
+    },
+    "optim": {
+      "optimizer": "sgd_momentum",
+      "lr": 0.01,
+      "backbone_lr_mult": 1.0,
+      "momentum": 0.9,
+      "weight_decay": 5e-05,
+      "nesterov": false,
+      "scheduler": "cosine",
+      "warmup_epochs": 0,
+      "epochs": 1,
+      "label_smoothing": 0.0,
+      "grad_clip": 0.0,
+      "amp": true,
+      "channels_last": true,
+      "loss": "ce",
+      "focal_gamma": 2.0,
+      "class_weighting": "none",
+      "weighted_sampler": false
+    },
+    "early_stop": {
+      "enabled": false,
+      "metric": "val_top1",
+      "mode": "max",
+      "patience": 4,
+      "min_delta": 0.0001,
+      "restore_best": true
+    },
+    "notes": "Verificacion: pesos de ImageNet en cache y backbone congelado.",
+    "keep_weights": false
+  },
+  "history": [
+    {
+      "epoch": 0,
+      "lr": 0.0,
+      "train_loss": 2.8224322979266825,
+      "train_top1": 0.38221153846153844,
+      "val_loss": 2.1307265758514404,
+      "val_top1": 0.584,
+      "val_top5": 0.86,
+      "val_macro_f1": 0.555299906119193,
+      "val_weighted_f1": 0.555299906119193,
+      "train_seconds": 1.3899962019640952,
+      "val_seconds": 1.5659564130473882,
+      "peak_memory_gb": 0.9917893409729004
+    }
+  ],
+  "best_epoch": 0,
+  "best": {
+    "val_loss": 2.1307265758514404,
+    "val_macro_f1": 0.555299906119193,
+    "val_weighted_f1": 0.555299906119193,
+    "val_n": 500,
+    "val_top1": 0.584,
+    "val_top5": 0.86
+  },
+  "final": {
+    "loss": 2.1307265758514404,
+    "macro_f1": 0.555299906119193,
+    "weighted_f1": 0.555299906119193,
+    "n": 500,
+    "top1": 0.584,
+    "top5": 0.86
+  },
+  "by_group": {},
+  "by_taxon": {
+    "Actinopterygii": {
+      "n_classes": 1,
+      "recall": 0.8,
+      "macro_f1": 0.888888888888889
+    },
+    "Agaricomycetes": {
+      "n_classes": 1,
+      "recall": 0.9,
+      "macro_f1": 0.9
+    },
+    "Aves": {
+      "n_classes": 9,
+      "recall": 0.6777777777777777,
+      "macro_f1": 0.6410107394089087
+    },
+    "Bivalvia": {
+      "n_classes": 1,
+      "recall": 1.0,
+      "macro_f1": 0.8695652173913044
+    },
+    "Insecta": {
+      "n_classes": 11,
+      "recall": 0.6363636363636364,
+      "macro_f1": 0.647049993017735
+    },
+    "Lecanoromycetes": {
+      "n_classes": 1,
+      "recall": 0.9,
+      "macro_f1": 0.9
+    },
+    "Liliopsida": {
+      "n_classes": 2,
+      "recall": 0.3,
+      "macro_f1": 0.28525641025641024
+    },
+    "Magnoliopsida": {
+      "n_classes": 22,
+      "recall": 0.4636363636363637,
+      "macro_f1": 0.418153718240517
+    },
+    "Reptilia": {
+      "n_classes": 2,
+      "recall": 0.8500000000000001,
+      "macro_f1": 0.7750000000000001
+    }
+  },
+  "params_total": 23610482,
+  "params_trainable": 102450,
+  "train_seconds": 2.9559526150114834,
+  "gpu_hours": 0.000821097948614301,
+  "epochs_run": 1,
+  "stopped_early": false,
+  "peak_memory_gb": 0.9917893409729004,
+  "throughput_img_s": 845.7510405627013
+}
