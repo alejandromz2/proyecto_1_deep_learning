@@ -1,0 +1,33 @@
+# Datos: nunca en el repositorio (el enunciado lo pide explicitamente)
+data/
+*.tar.gz
+*.jpg
+*.parquet
+
+# Pesos y checkpoints
+results/models/
+results/checkpoints/
+*.pt
+*.pth
+.torch/
+
+# Entorno
+.venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# Salidas voluminosas de ejecucion
+logs/*.log
+
+# Figuras: se regeneran ejecutando el notebook sobre los resultados
+figures/*.png
+
+# Enunciado del curso: material del profesor, no parte del entregable
+Evaluación_Proyecto1.pdf
+
+# Estado de envio: propio de cada cuenta de Slurm, no del proyecto
+khipu/job_ids.tsv
+
+# Índices Parquet descargados para trabajar en local (45 MB, se obtienen del clúster)
+data/
